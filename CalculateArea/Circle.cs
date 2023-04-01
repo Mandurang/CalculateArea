@@ -10,18 +10,15 @@ namespace CalculateArea
     {
         private double CircleRadius { get { return CircleRadius; } set { if (value <= 0) throw new ArgumentException("Length can't be negative or equal 0"); } }
 
-
         public Circle(double circleRadius)
         {
             CircleRadius = circleRadius;
         }
 
-
         public double CalculateAreaFigure()
         {
             return Math.PI * (CircleRadius * CircleRadius);
         }
-
 
         public bool IsValidArea()
         {
