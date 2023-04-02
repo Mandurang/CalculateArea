@@ -16,7 +16,7 @@ ON Products.IdCategory=Categories.Id;
  
 
 
-<Many to Many> withe one more tables  
+"Many to Many" withe one more tables  
 SELECT Products.ProductName, Categories.CatigoryName  
 FROM Products  
 LEFT JOIN ProductsCategoryes ON Products.Id = ProductsCategoryes.Id  
