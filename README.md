@@ -8,7 +8,7 @@
 По возможности — положите ответ рядом с кодом из первого вопроса.
 
 
-SELECT Products.ProductName, Categories.CatigoryName
+SELECT Products.ProductName, Categories.CatigoryName\n
 FROM Products
 LEFT JOIN Categories
 ON Products.IdCategory=Categories.Id;
