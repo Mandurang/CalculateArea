@@ -8,15 +8,21 @@
 По возможности — положите ответ рядом с кодом из первого вопроса.
 
 
-SELECT Products.ProductName, Categories.CatigoryName\n
-FROM Products
-LEFT JOIN Categories
-ON Products.IdCategory=Categories.Id;
+SELECT Products.ProductName, Categories.CatigoryName  
+FROM Products  
+LEFT JOIN Categories  
+ON Products.IdCategory=Categories.Id;  
+
  
+
+
+<Many to Many> withe one more tables  
  
+SELECT Products.ProductName, Categories.CatigoryName  
  
-<Many to Many> withe one more tables 
-SELECT Products.ProductName, Categories.CatigoryName
-FROM Products
-LEFT JOIN ProductsCategoryes ON Products.Id = ProductsCategoryes.Id
-LEFT JOIN Categories ON ProductsCategories.IdCategory = Categories.Id;
+FROM Products  
+ 
+LEFT JOIN ProductsCategoryes ON Products.Id = ProductsCategoryes.Id  
+ 
+LEFT JOIN Categories ON ProductsCategories.IdCategory = Categories.Id;  
+ 
