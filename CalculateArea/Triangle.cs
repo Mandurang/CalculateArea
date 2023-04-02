@@ -8,11 +8,9 @@ namespace CalculateArea
 {
     public class Triangle : IShape
     {
-        private double CatetA { get { return CatetA; } set { if (value <= 0) throw new ArgumentException("Length can't be negative or equal 0"); } }
-
-        private double CatetB { get { return CatetB; } set { if (value <= 0) throw new ArgumentException("Length can't be negative or equal 0"); } }
-
-        private double CatetC { get { return CatetC; } set { if (value <= 0) throw new ArgumentException("Length can't be negative or equal 0"); } }
+        private double CatetA { get; set; } 
+        private double CatetB { get; set; }
+        private double CatetC { get; set; }
 
         public Triangle(double catetA, double catetB, double catetC)
         {
@@ -23,6 +21,7 @@ namespace CalculateArea
 
         public double CalculateAreaFigure()
         {
+            IsValidParam();
             double prm = (CatetA + CatetB + CatetC) / 2;
 
             return Math.Sqrt(prm * (prm - CatetA) * (prm - CatetB) * (prm - CatetC));
@@ -30,6 +29,7 @@ namespace CalculateArea
 
         public bool IsRightTriangle()
         {
+            IsValidParam();
             double max = new[] { CatetA, CatetB, CatetC }.Max();
             double maxPow = Math.Pow(max, 2);
 
@@ -41,14 +41,14 @@ namespace CalculateArea
             return false;
         }
 
-        public bool IsValidArea()
+        public void IsValidParam()
         {
-            if (CalculateAreaFigure() <= 0)
+            if(CatetA <= 0 || CatetB <= 0 || CatetC <= 0 )
             {
                 throw new ArgumentException("Area can't be negative or equal 0");
-            }
 
-            return true;
+                //Console.WriteLine("Area can't be negative or equal 0"); -we also can add / push exception dependent our realization
+            }
         }
     }
 }

@@ -9,26 +9,43 @@ namespace AreaUnitTest
         public void CalculateArea_CircleWithСorrectRadius_CorrectArea()
         {
             // Arrange
-            var circle = new Circle(10);
+            var circle = new Circle(10.0);
 
             // Act
             var actualArea = circle.CalculateAreaFigure();
-
+            var expectedArea = Math.PI * 10 * 10;
             // Assert
-            Assert.AreEqual(314, actualArea);
+            Assert.AreEqual(expectedArea, actualArea);
         }
 
         [TestMethod]
-        public void Circle_WithPositiveRadius_CreatesCircle()
+        [ExpectedException(typeof(ArgumentException))]
+        public void CalculateArea_CircleWitheNegativeParam_ReturnCalculateAreaFigureExeption()
         {
             // Arrange
-            double radius = 10;
+            var radius = new Circle(-10.0);
+            var exptedMessage = "Area can't be negative or equal 0";
 
             // Act
-            var circle = new Circle(radius);
+            var resutl = radius.CalculateAreaFigure();
 
             // Assert
-            Assert.IsNotNull(circle);
+            Assert.ThrowsException<ArgumentException>(() => radius.CalculateAreaFigure(), exptedMessage);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void NegativeRadius_IsInValidAria_ReturnException()
+        {
+            // Arrange
+            var radius = new Circle(-10.0);
+            var exptedMessage = "Area can't be negative or equal 0";
+
+            // Act
+            radius.IsValidParam();
+
+            // Assert
+            Assert.ThrowsException<ArgumentException>(() => radius.IsValidParam(), exptedMessage);
         }
     }
 }

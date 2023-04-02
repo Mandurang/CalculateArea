@@ -3,6 +3,6 @@
     public interface IShape
     {
         double CalculateAreaFigure();
-        bool IsValidArea();
+        void IsValidParam();
     }
 }

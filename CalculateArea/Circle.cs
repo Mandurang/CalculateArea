@@ -8,7 +8,7 @@ namespace CalculateArea
 {
     public class Circle : IShape
     {
-        private double CircleRadius { get { return CircleRadius; } set { if (value <= 0) throw new ArgumentException("Length can't be negative or equal 0"); } }
+        private double CircleRadius { get; set; }
 
         public Circle(double circleRadius)
         {
@@ -17,17 +17,18 @@ namespace CalculateArea
 
         public double CalculateAreaFigure()
         {
+            IsValidParam();
             return Math.PI * (CircleRadius * CircleRadius);
         }
 
-        public bool IsValidArea()
+        public void IsValidParam()
         {
-            if (CalculateAreaFigure() <= 0)
+            if (CircleRadius <= 0)
             {
                 throw new ArgumentException("Area can't be negative or equal 0");
-            }
 
-            return true;
+                //Console.WriteLine("Area can't be negative or equal 0"); - we also can add/push exception dependent our realization
+            }
         }
     }
 }
